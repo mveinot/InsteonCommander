@@ -11,6 +11,7 @@
 		BC38D7F51B4007B5000D65B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC38D7F41B4007B5000D65B2 /* Images.xcassets */; };
 		BC38D7F81B4007B5000D65B2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38D7F61B4007B5000D65B2 /* MainMenu.xib */; };
 		BC38D8041B4007B5000D65B2 /* InsteonCommanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38D8031B4007B5000D65B2 /* InsteonCommanderTests.swift */; };
+		BCADEEC11B42C3CA00372FBD /* tray.png in Resources */ = {isa = PBXBuildFile; fileRef = BCADEEC01B42C3CA00372FBD /* tray.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		BC38D7FD1B4007B5000D65B2 /* InsteonCommanderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsteonCommanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC38D8021B4007B5000D65B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC38D8031B4007B5000D65B2 /* InsteonCommanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsteonCommanderTests.swift; sourceTree = "<group>"; };
+		BCADEEC01B42C3CA00372FBD /* tray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tray.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		BC38D7EF1B4007B5000D65B2 /* InsteonCommander */ = {
 			isa = PBXGroup;
 			children = (
+				BCADEEC01B42C3CA00372FBD /* tray.png */,
 				BC38D7F21B4007B5000D65B2 /* AppDelegate.swift */,
 				BC38D7F41B4007B5000D65B2 /* Images.xcassets */,
 				BC38D7F61B4007B5000D65B2 /* MainMenu.xib */,
@@ -186,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCADEEC11B42C3CA00372FBD /* tray.png in Resources */,
 				BC38D7F51B4007B5000D65B2 /* Images.xcassets in Resources */,
 				BC38D7F81B4007B5000D65B2 /* MainMenu.xib in Resources */,
 			);
@@ -396,6 +400,7 @@
 				BC38D8091B4007B5000D65B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC38D80A1B4007B5000D65B2 /* Build configuration list for PBXNativeTarget "InsteonCommanderTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +409,7 @@
 				BC38D80C1B4007B5000D65B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
