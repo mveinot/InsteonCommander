@@ -187,7 +187,8 @@ class InsteonHub: NSObject, NSXMLParserDelegate {
         var xmlString = NSString(data: data, encoding: NSUTF8StringEncoding)
         var xmlParser : NSXMLParser = NSXMLParser(data: data)
 
-        xmlParser.delegate = self
+        xmlParser.delegate = self;
+        devices.removeAll(keepCapacity: false);
         xmlParser.parse()
     }
     
@@ -240,6 +241,7 @@ class InsteonHub: NSObject, NSXMLParserDelegate {
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    var preferencesWindow: PreferencesWindow!
     @IBOutlet weak var percentLabel: NSTextField!
     @IBOutlet weak var sliderValue: NSSlider!
     @IBOutlet weak var sliderUI: NSSlider!
@@ -253,6 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var menu: NSMenu = NSMenu()
     var exitItem : NSMenuItem = NSMenuItem()
     var aboutItem : NSMenuItem = NSMenuItem()
+    var prefItem : NSMenuItem = NSMenuItem()
     var insteonHub : InsteonHub = InsteonHub()
     
     override func awakeFromNib() {
@@ -278,11 +281,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         menu.removeAllItems()
         
-        //Add menuItem
+        //Add menuItems
         exitItem.title = "Exit";
         exitItem.action = Selector("closeApp:");
         exitItem.keyEquivalent = "";
         menu.addItem(exitItem);
+        
+        prefItem.title = "Preferences...";
+        prefItem.action = Selector("showPrefWindow");
+        prefItem.keyEquivalent = "";
+        menu.addItem(prefItem);
         
         aboutItem.title = "About...";
         aboutItem.action = Selector("aboutApp");
@@ -343,6 +351,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popup.alertStyle = NSAlertStyle.InformationalAlertStyle;
         popup.addButtonWithTitle("OK");
         popup.runModal();
+    }
+    
+    func showPrefWindow() {
+        preferencesWindow = PreferencesWindow();
+        preferencesWindow.showWindow(nil);
+        preferencesWindow.test(insteonHub.devices);
     }
     
     func controlWindow(sender: AnyObject) {
