@@ -339,7 +339,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func aboutApp() {
         let popup: NSAlert = NSAlert();
         popup.messageText = "Insteon Commander";
-        popup.informativeText = "Written by: Mark Veinot\nVersion: 1.0.0";
+        popup.informativeText = "Written by: Mark Veinot\nVersion: 1.0.1";
         popup.alertStyle = NSAlertStyle.InformationalAlertStyle;
         popup.addButtonWithTitle("OK");
         popup.runModal();
