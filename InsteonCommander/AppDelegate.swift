@@ -351,6 +351,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let sliderValue : Int = insteonHub.getStatus(activeDevice);
         self.window!.orderFront(self)
         self.window!.center();
+        self.window!.styleMask = self.window!.styleMask & ~NSResizableWindowMask;
         window.level = Int(CGWindowLevelForKey(Int32(kCGFloatingWindowLevelKey)));
         if (insteonHub.devices[activeDevice].type == 91) {
             sliderUI.enabled = true;
