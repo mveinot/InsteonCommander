@@ -37,8 +37,8 @@
 		BC38D8021B4007B5000D65B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC38D8031B4007B5000D65B2 /* InsteonCommanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsteonCommanderTests.swift; sourceTree = "<group>"; };
 		BCADEEC01B42C3CA00372FBD /* tray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tray.png; sourceTree = "<group>"; };
-		BCAE797E1B47261D00117216 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
-		BCAE797F1B47261D00117216 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		BCAE797E1B47261D00117216 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesWindow.swift; path = ../PreferencesWindow.swift; sourceTree = "<group>"; };
+		BCAE797F1B47261D00117216 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesWindow.xib; path = ../PreferencesWindow.xib; sourceTree = "<group>"; };
 		BCF8ADC31B481F15003CBC8C /* InsteonHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsteonHub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +63,6 @@
 		BC38D7E41B4007B5000D65B2 = {
 			isa = PBXGroup;
 			children = (
-				BCAE797E1B47261D00117216 /* PreferencesWindow.swift */,
-				BCAE797F1B47261D00117216 /* PreferencesWindow.xib */,
 				BC38D7EF1B4007B5000D65B2 /* InsteonCommander */,
 				BC38D8001B4007B5000D65B2 /* InsteonCommanderTests */,
 				BC38D7EE1B4007B5000D65B2 /* Products */,
@@ -84,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				BCADEEC01B42C3CA00372FBD /* tray.png */,
+				BCAE797E1B47261D00117216 /* PreferencesWindow.swift */,
+				BCAE797F1B47261D00117216 /* PreferencesWindow.xib */,
 				BC38D7F21B4007B5000D65B2 /* AppDelegate.swift */,
 				BCF8ADC31B481F15003CBC8C /* InsteonHub.swift */,
 				BC38D7F41B4007B5000D65B2 /* Images.xcassets */,
