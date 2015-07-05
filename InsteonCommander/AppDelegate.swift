@@ -124,9 +124,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func aboutApp() {
+        let version : String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String;
         let popup: NSAlert = NSAlert();
         popup.messageText = "Insteon Commander";
-        popup.informativeText = "Written by: Mark Veinot\nVersion: 1.1.0";
+        popup.informativeText = "Written by: Mark Veinot\nVersion: \(version)";
         popup.alertStyle = NSAlertStyle.InformationalAlertStyle;
         popup.addButtonWithTitle("OK");
         popup.runModal();
