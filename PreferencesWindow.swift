@@ -10,13 +10,9 @@ import Cocoa
 
 class PreferencesWindow: NSWindowController, NSTableViewDataSource, NSTableViewDelegate {
 
-    var dataSource: [String] = ["a", "b", "c", "d", "e", "f"];
     var devices: [InsteonDevice] = [];
     
     @IBOutlet weak var deviceTable: NSTableView!
-    @IBAction func deviceAction(sender: NSTableView) {
-        println(devices[sender.selectedRow].name);
-    }
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -25,6 +21,7 @@ class PreferencesWindow: NSWindowController, NSTableViewDataSource, NSTableViewD
         self.window?.center()
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activateIgnoringOtherApps(true)
+        deviceTable.setDelegate(self);
         deviceTable.setDataSource(self);
 
     }
@@ -33,14 +30,62 @@ class PreferencesWindow: NSWindowController, NSTableViewDataSource, NSTableViewD
         return "PreferencesWindow"
     }
     
-    func test(deviceList: [InsteonDevice]) {
+    @IBAction func removeDevice(sender: NSButton) {
+        devices.removeAtIndex(deviceTable.selectedRow);
+        deviceTable.reloadData();
+    }
+    
+    @IBAction func addDevice(sender: NSButton) {
+        var insteonDevice = InsteonDevice(address: "", name: "", type: 90);
+        devices.append(insteonDevice);
+        deviceTable.reloadData();
+        deviceTable.scrollToEndOfDocument(sender);
+        let indexSet : NSIndexSet = NSIndexSet(index: devices.count - 1);
+        deviceTable.selectRowIndexes(indexSet, byExtendingSelection: false);
+    }
+    
+    @IBAction func btnSave(sender: NSButton) {
+        // get a reference back to the main App window instance
+        var appDelegate : AppDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
+        
+        // then tell it the device list was updated
+        appDelegate.devicesChanged();
+
+        // close the window
+        self.close();
+    }
+    
+    func setDeviceList(deviceList: [InsteonDevice]) {
         devices = deviceList;
-        println("devices passed: \(devices.count)");
         deviceTable.reloadData();
     }
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return devices.count;
+    }
+    
+    func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, forTableColumn tableColumn: NSTableColumn?, row: Int) {
+        if (tableColumn?.identifier != nil && object?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) != nil) {
+            var newValue : String = (object!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()));
+            
+            if (tableColumn!.identifier == "name") {
+                devices[row].name = newValue;
+            }
+            
+            if (tableColumn!.identifier == "type") {
+                if (newValue.lowercaseString == "relay") {
+                    devices[row].type = 90;
+                } else if (newValue.lowercaseString == "dimmer") {
+                    devices[row].type = 91;
+                } else if (newValue.lowercaseString == "scene") {
+                    devices[row].type = 92;
+                }
+            }
+            
+            if (tableColumn!.identifier == "address") {
+                devices[row].address = newValue;
+            }
+        }
     }
     
     func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject? {
